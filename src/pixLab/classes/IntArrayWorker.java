@@ -99,5 +99,50 @@ public class IntArrayWorker
       }
     }
   }
+  
+  public int getCount(int arrayVar)
+  {
+	arrayVar = 0;
+	for(int[] rowArray : matrix)
+	{
+		for(int item : rowArray)
+		{
+			if(item == 1)
+			{
+				arrayVar = arrayVar + item;
+			}
+		}
+	}
+	  return arrayVar;
+  }
+  
+  public int getLargest()
+  {
+	 int largest = 0;
+	 for(int row = 0; row < matrix.length; row++)
+	 {
+		 for(int col = 0; col < matrix[0].length; col++)
+		 {
+			 if(col > matrix[col])
+			 {
+				largest = largest + matrix[row][col]; 
+			 }
+		 }
+	 }
+
+	  return largest;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
  
 }
