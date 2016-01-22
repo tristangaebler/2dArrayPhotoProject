@@ -99,7 +99,7 @@ public class Picture extends SimplePicture
     }
   }
   
-  //zeroRed method
+  /*Method to set the red to 0 */
   public void zeroRed() 
   {
 	  Pixel[][] pixels = this.getPixels2D();
@@ -112,7 +112,7 @@ public class Picture extends SimplePicture
 	  }
   }
   
-  //zeroGreen Method
+  /*Method to set the green to 0 */
   public void zeroGreen() 
   {
 	  Pixel[][] pixels = this.getPixels2D();
