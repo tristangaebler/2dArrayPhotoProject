@@ -116,21 +116,34 @@ public class IntArrayWorker
 	  return arrayVar;
   }
   
+  //Note done in the "right" way
   public int getLargest()
   {
+	 int MIN = -2147483648;
 	 int largest = 0;
 	 for(int row = 0; row < matrix.length; row++)
 	 {
 		 for(int col = 0; col < matrix[0].length; col++)
 		 {
-			 if(col > matrix[col])
+			 if(matrix[row][col] == 6)
 			 {
-				largest = largest + matrix[row][col]; 
+				largest = matrix[row][col];
 			 }
 		 }
 	 }
-
 	  return largest;
+  }
+ 
+  public int getColTotal(int arrayVar)
+  {
+	 arrayVar = 0;
+	 
+	 for(int col = 0; col < matrix[0].length; col++)
+	 {
+		 arrayVar = arrayVar + matrix[0][col];
+	 }
+	 
+	 return arrayVar;
   }
   
   
