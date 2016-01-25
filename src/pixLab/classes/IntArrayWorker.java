@@ -144,18 +144,5 @@ public class IntArrayWorker
 	 }
 	 
 	 return arrayVar;
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
+  }  
 }
