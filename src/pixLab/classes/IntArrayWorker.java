@@ -116,10 +116,8 @@ public class IntArrayWorker
 	  return arrayVar;
   }
   
-  //Note done in the "right" way
   public int getLargest()
   {
-	 int MIN = -2147483648;
 	 int largest = 0;
 	 for(int row = 0; row < matrix.length; row++)
 	 {
