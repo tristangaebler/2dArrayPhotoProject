@@ -139,6 +139,17 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void keepOnlyRed() 
+  {
+	 zeroGreen();
+	 zeroBlue();
+  }
+  
+  public void keepOnlyGreen()
+  {
+	  zeroRed();
+	  zeroBlue();
+  }
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -157,6 +168,23 @@ public class Picture extends SimplePicture
         rightPixel.setColor(leftPixel.getColor());
       }
     } 
+  }
+  
+  public void mirrorHorizontal()
+  {
+	 Pixel[][] pixels = this.getPixels2D();
+	 Pixel leftPixel = null;
+	 Pixel rightPixel = null;
+	 int height = pixels[0].length;
+	 for(int row = 0; row < pixels.length; row++)
+	 {
+		 for(int col = 0; col < height / 2; col++)
+		 {
+			 leftPixel = pixels[row][col];
+			 rightPixel = pixels[row][height - 1 - col];
+			 rightPixel.setColor(leftPixel.getColor());
+		 }
+	 }
   }
   
   /** Mirror just part of a picture of a temple */
@@ -231,6 +259,8 @@ public class Picture extends SimplePicture
     this.write("collage.jpg");
   }
   
+
+  
   
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
@@ -267,7 +297,8 @@ public class Picture extends SimplePicture
     Picture android = new Picture("Android.png");
     android.explore();
     android.createCollage();
-    android.keepOnlyBlue();
+    android.keepOnlyGreen();
+    android.mirrorVertical();
     android.explore();
     //beach.write("filename.jpg");
   }

@@ -131,17 +131,18 @@ public class IntArrayWorker
 	 }
 	  return largest;
   }
- 
-  public int getColTotal(int arrayVar)
+  
+ //Going to be like getTotal
+  public int getColTotal(int total)
   {
-	 arrayVar = 0;
+	 total = 0;
 	 
 	 for(int row = 0; row < matrix.length; row++)
 	 {
-		 arrayVar = matrix[row][0];
+		 total = total + matrix[0][row];
 	 }
 	 
-	 return arrayVar;
+	 return total;
   }  
 }
 
