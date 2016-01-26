@@ -170,21 +170,21 @@ public class Picture extends SimplePicture
     } 
   }
   
-  public void mirrorHorizontal()
+  public void mirrorVerticalRightToLeft()
   {
-	 Pixel[][] pixels = this.getPixels2D();
-	 Pixel leftPixel = null;
-	 Pixel rightPixel = null;
-	 int height = pixels[0].length;
-	 for(int row = 0; row < pixels.length; row++)
-	 {
-		 for(int col = 0; col < height / 2; col++)
-		 {
-			 leftPixel = pixels[row][col];
-			 rightPixel = pixels[row][height - 1 - col];
-			 rightPixel.setColor(leftPixel.getColor());
-		 }
-	 }
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int width = pixels[0].length;
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = pixels[0].length - 1; col > width / 2; col--)
+		  {
+			  rightPixel = pixels[row][col];
+			  leftPixel = pixels[row][(width / 2) - (col - width / 2)];
+			  leftPixel.setColor(rightPixel.getColor());
+		  }
+	  }
   }
   
   /** Mirror just part of a picture of a temple */
@@ -296,9 +296,9 @@ public class Picture extends SimplePicture
   {
     Picture android = new Picture("Android.png");
     android.explore();
-    android.createCollage();
+    //android.createCollage();
     android.keepOnlyGreen();
-    android.mirrorVertical();
+    android.mirrorVerticalRightToLeft();
     android.explore();
     //beach.write("filename.jpg");
   }
