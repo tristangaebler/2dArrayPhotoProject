@@ -35,6 +35,14 @@ public class PictureTester
 	caterpillar.explore();
   }
   
+  public static void testRandomColor()
+  {
+	  Picture randomDroid = new Picture("Android.png");
+	  randomDroid.explore();
+	  randomDroid.randomColor();
+	  randomDroid.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -74,6 +82,7 @@ public class PictureTester
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
+	testRandomColor();
     testMirrorVertical();
     testMirrorVerticalRightToLeft();
     //testMirrorTemple();

@@ -318,6 +318,7 @@ public class Picture extends SimplePicture
     //android.createCollage();
     android.keepOnlyGreen();
     android.mirrorVerticalRightToLeft();
+    android.randomColor();
     android.explore();
     //beach.write("filename.jpg");
   }
