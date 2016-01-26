@@ -127,15 +127,16 @@ public class Picture extends SimplePicture
   
   public void keepOnlyBlue()
   {
-	Pixel[][] pixels = this.getPixels2D();
-	for(Pixel[] rowArray : pixels)
-	{
-		for(Pixel pixelObj : rowArray)
-		{
-			pixelObj.setRed(0);
-			pixelObj.setGreen(0);
-		}
-	}
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] rowArray : pixels)
+	  {
+		  for(Pixel pixel : rowArray)
+		  {
+			  pixel.setGreen(0);
+			  pixel.setRed(0);
+			  
+		  }
+	  }
   }
   
   /** Method that mirrors the picture around a 
@@ -265,9 +266,9 @@ public class Picture extends SimplePicture
   {
     Picture android = new Picture("Android.png");
     android.explore();
-    android.zeroBlue();
-    android.explore();
     android.createCollage();
+    android.keepOnlyBlue();
+    android.explore();
     //beach.write("filename.jpg");
   }
   
