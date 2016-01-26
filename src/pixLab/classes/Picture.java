@@ -170,6 +170,25 @@ public class Picture extends SimplePicture
     } 
   }
   
+  public void randomColor()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] row : pixels)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  int randomRed, randomGreen, randomBlue;
+			  randomRed = (int)(Math.random() * 256);
+			  randomBlue = (int)(Math.random() * 256);
+			  randomGreen = (int)(Math.random() * 256);
+			  
+			  currentPixel.setGreen(randomGreen);
+			  currentPixel.setBlue(randomBlue);
+			  currentPixel.setRed(randomRed);
+		  }
+	  }
+  }
+  
   public void mirrorVerticalRightToLeft()
   {
 	  Pixel[][] pixels = this.getPixels2D();
