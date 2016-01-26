@@ -135,14 +135,12 @@ public class IntArrayWorker
  //Going to be like getTotal
   public int getColTotal(int total)
   {
-	 total = 0;
-	 
-	 for(int row = 0; row < matrix.length; row++)
+	 int colTotal = 0;
+	 for(int i = 0; i < matrix.length; i++)
 	 {
-		 total = total + matrix[0][row];
+		 colTotal = colTotal + matrix[i][total];
 	 }
-	 
-	 return total;
+	 return colTotal;
   }  
 }
 
