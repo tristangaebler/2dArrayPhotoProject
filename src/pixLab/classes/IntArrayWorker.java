@@ -123,9 +123,7 @@ public class IntArrayWorker
 	 {
 		 for(int col = 0; col < matrix[0].length; col++)
 		 {
-
 			 if(matrix[row][col] > largest )
-
 			 {
 				largest = matrix[row][col];
 			 }
@@ -138,11 +136,29 @@ public class IntArrayWorker
   {
 	 arrayVar = 0;
 	 
-	 for(int col = 0; col < matrix[0].length; col++)
+	 for(int row = 0; row < matrix.length; row++)
 	 {
-		 arrayVar = arrayVar + matrix[0][col];
+		 arrayVar = matrix[row][0];
 	 }
 	 
 	 return arrayVar;
   }  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
