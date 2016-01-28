@@ -170,6 +170,23 @@ public class Picture extends SimplePicture
     } 
   }
   
+  public void mirrorHorizontal()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int height = pixels.length;
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < height / 2; col++)
+		  {
+			  leftPixel = pixels[row][col];
+			  rightPixel = pixels[height - 1 - row][col];
+			  rightPixel.setColor(leftPixel.getColor());
+		  }
+	  }
+  }
+  
   public void randomColor()
   {
 	  Pixel[][] pixels = this.getPixels2D();
@@ -317,10 +334,11 @@ public class Picture extends SimplePicture
     android.explore();
     //android.createCollage();
     android.keepOnlyGreen();
-    android.mirrorVerticalRightToLeft();
-    android.randomColor();
+    //android.mirrorVerticalRightToLeft();
+    //android.mirrorTemple();
+    android.mirrorHorizontal();
     android.explore();
-    //beach.write("filename.jpg");
+    //android.write("Android.png");
   }
   
 } // this } is the end of class Picture, put all new methods before this
