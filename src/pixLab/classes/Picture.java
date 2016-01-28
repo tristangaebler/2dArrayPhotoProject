@@ -223,6 +223,24 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void mirrorHorizontalBottomToTop()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int height = pixels.length;
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < height / 2; col++)
+		  {
+			  leftPixel = pixels[height - 1 -row][col];
+			  rightPixel = pixels[row][col];
+			  rightPixel.setColor(leftPixel.getColor());
+		  }
+	  }
+	  
+  }
+  
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -330,13 +348,14 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture android = new Picture("Android.png");
+    Picture android = new Picture("beach.jpg");
     android.explore();
     //android.createCollage();
-    android.keepOnlyGreen();
+    //android.keepOnlyGreen();
     //android.mirrorVerticalRightToLeft();
     //android.mirrorTemple();
-    android.mirrorHorizontal();
+    //android.mirrorHorizontal();
+    android.mirrorHorizontalBottomToTop();
     android.explore();
     //android.write("Android.png");
   }
