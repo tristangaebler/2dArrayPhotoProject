@@ -123,7 +123,7 @@ public class IntArrayWorker
 	 {
 		 for(int col = 0; col < matrix[0].length; col++)
 		 {
-			 if(matrix[row][col] > largest )
+			 if(matrix[row][col] > largest)
 			 {
 				largest = matrix[row][col];
 			 }

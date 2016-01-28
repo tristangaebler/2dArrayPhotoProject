@@ -18,6 +18,30 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testKeepOnlyBlue()
+  {
+	  Picture android = new Picture("Android.png");
+	  android.explore();
+	  android.keepOnlyBlue();
+	  android.explore();
+  }
+  
+  public static void testKeepOnlyRed()
+  {
+	  Picture android = new Picture("Android.png");
+	  android.explore();
+	  android.keepOnlyRed();
+	  android.explore();
+  }
+  
+  public static void testKeepOnlyGreen()
+  {
+	  Picture android = new Picture("Android.png");
+	  android.explore();
+	  android.keepOnlyGreen();
+	  android.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -76,9 +100,9 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
+    testKeepOnlyBlue();
+    testKeepOnlyRed();
+    testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
