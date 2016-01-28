@@ -265,6 +265,27 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void mirrorArms()
+  {
+	  int mirrorPoint = 200;
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int count = 0;
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  //Always rows first
+	  for(int row = 186; row < 200; row++)
+	  {
+		  for(int col = 168; col < mirrorPoint; col++)
+		  {
+		      leftPixel = pixels[row][col];      
+		      rightPixel = pixels[row]                       
+		                         [mirrorPoint - col + mirrorPoint];
+		      rightPixel.setColor(leftPixel.getColor());
+		  }
+	  }
+  }
+  
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -348,14 +369,15 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture android = new Picture("beach.jpg");
+    Picture android = new Picture("snowman.jpg");
     android.explore();
     //android.createCollage();
     //android.keepOnlyGreen();
     //android.mirrorVerticalRightToLeft();
     //android.mirrorTemple();
     //android.mirrorHorizontal();
-    android.mirrorHorizontalBottomToTop();
+    //android.mirrorHorizontalBottomToTop();
+    android.mirrorArms();
     android.explore();
     //android.write("Android.png");
   }
