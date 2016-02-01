@@ -272,7 +272,7 @@ public class Picture extends SimplePicture
 	  Pixel BottomPixel = null;
 	  int point1 = 220;
 	  int point2 = 275;
-	  for(int row = 0; row < point1; row++)
+	  for(int row = 160; row < point1; row++)
 	  {
 		  for(int col = 0; col < pixels[0].length; col++)
 		  {
@@ -282,7 +282,7 @@ public class Picture extends SimplePicture
 		  }
 	  }
 	  
-	  for(int row = 0; row < point2; row++)
+	  for(int row = 255; row < point2; row++)
 	  {
 		  for(int col = 0; col < pixels[0].length; col++)
 		  {
