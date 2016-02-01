@@ -94,7 +94,9 @@ public class Picture extends SimplePicture
     {
       for (Pixel pixelObj : rowArray)
       {
+    	int tempBlue = pixelObj.getBlue();
         pixelObj.setBlue(0);
+        tempBlue = pixelObj.getBlue();
       }
     }
   }
@@ -293,6 +295,34 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void mirrorGull()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel TopPixel = null;
+	  Pixel BottomPixel = null;
+	  int point1 = 115;
+	  int point2 = 127;
+	  for(int row = 273; row < point1; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  TopPixel = pixels[point2 - row + point2][col];
+			  BottomPixel = pixels[row][col];
+			  BottomPixel.setColor(TopPixel.getColor());
+		  }
+	  }
+	  
+	  for(int row = 292; row < point2; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  TopPixel = pixels[point2 - row + point2][col];
+			  BottomPixel = pixels[row][col];
+			  BottomPixel.setColor(TopPixel.getColor());
+		  }
+	  }
+  }
+  
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -376,15 +406,19 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture android = new Picture("snowman.jpg");
+    Picture android = new Picture("seagull.jpg");
     android.explore();
     //android.createCollage();
     //android.keepOnlyGreen();
     //android.mirrorVerticalRightToLeft();
+    //android.mirrorHorizontal();
     //android.mirrorTemple();
     //android.mirrorHorizontal();
     //android.mirrorHorizontalBottomToTop();
-    android.mirrorArms();
+    //android.mirrorArms();
+    //android.mirrorVertical();
+    //android.zeroBlue();
+    android.mirrorGull();
     android.explore();
     //android.write("Android.png");
   }
