@@ -358,9 +358,13 @@ public class Picture extends SimplePicture
 	  {
 		  for(int fromCol = 0, toCol = startCol; fromCol < fromPixels[0].length && toCol < toPixels[0].length; fromCol++, toCol++)
 		  {
-			  
+			  fromPixel = fromPixels[fromRow][fromCol];
+			  toPixel = toPixels[toRow][toCol];
+			  toPixel.setColor(fromPixel.getColor());
 		  }
 	  }
+	  
+	  
 	    
   }
   
