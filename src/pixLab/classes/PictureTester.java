@@ -100,6 +100,13 @@ public class PictureTester
     canvas.explore();
   }
   
+  public static void testMyCollage()
+  {
+	  Picture moon = new Picture("moon-surface.jpg");
+	  moon.createCollage();
+	  moon.explore();
+  }
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -127,7 +134,8 @@ public class PictureTester
     //testMirrorVerticalRightToLeft();
     //testMirrorTemple();
     //testMirrorArms();
-    testMirrorGull();
+    //testMirrorGull();
+	  testMyCollage();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();

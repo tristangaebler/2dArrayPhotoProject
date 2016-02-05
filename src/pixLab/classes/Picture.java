@@ -363,9 +363,6 @@ public class Picture extends SimplePicture
 			  toPixel.setColor(fromPixel.getColor());
 		  }
 	  }
-	  
-	  
-	    
   }
   
   /** Method to create a collage of several pictures */
@@ -383,6 +380,23 @@ public class Picture extends SimplePicture
     this.copy(flower2,500,0);
     this.mirrorVertical();
     this.write("collage.jpg");
+  }
+  
+  /**Method creates my own custom collage */
+  public void myCollage()
+  {
+	  Picture moon = new Picture("moon-surface.jpg");
+	  Picture moon2 = new Picture("moon-surface.jpg");
+	  this.copy(moon, 0, 0);
+	  this.copy(moon2, 175, 0);
+	  this.copy(moon, 275, 0);
+	  Picture moonMirror = new Picture(moon);
+	  moon.mirrorHorizontal();
+	  this.copy(moonMirror, 200, 0);
+	  this.copy(moon, 400, 0);
+	  this.copy(moon2, 500, 0);
+	  this.mirrorVertical();
+	  this.write("myCollage.jpg");
   }
   
 
@@ -425,7 +439,7 @@ public class Picture extends SimplePicture
     //android.createCollage();
     //android.keepOnlyGreen();
     //android.mirrorVerticalRightToLeft();
-    android.mirrorHorizontal();
+   // android.mirrorHorizontal();
     //android.mirrorTemple();
     //android.mirrorHorizontal();
     //android.mirrorHorizontalBottomToTop();
@@ -433,6 +447,7 @@ public class Picture extends SimplePicture
     //android.mirrorVertical();
     //android.zeroBlue();
     //android.mirrorGull();
+    //android.secondCopy(277, 50, 200, 300, 30);
     android.explore();
     //android.write("Android.png");
   }
