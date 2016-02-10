@@ -135,6 +135,20 @@ public class PictureTester
 	  negate.negate();
 	  negate.explore();
   }
+  
+  public void testGrayScale()
+  {
+	  Picture grey = new Picture("beach.jpg");
+	  grey.grayScale();
+	  grey.explore();
+  }
+  
+  public void testFixUnderwater()
+  {
+	  Picture underwater = new Picture("water.jpg");
+	  underwater.fixUnderwater();
+	  underwater.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)

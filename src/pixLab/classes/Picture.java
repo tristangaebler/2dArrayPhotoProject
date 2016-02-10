@@ -414,6 +414,40 @@ public class Picture extends SimplePicture
 	    }
   }
 
+  public void grayScale()
+  {
+	  Pixel[][] Pixel = this.getPixels2D();
+	    for (Pixel[] rowArray : Pixel)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	    	  int redColor = pixelObj.getRed();
+	    	  int blueColor = pixelObj.getBlue();
+	    	  int greenColor = pixelObj.getGreen();
+	    	  int average = (redColor + blueColor + greenColor) / 3;
+	    	  Color grayColor = new Color(average, average, average);
+	    	  pixelObj.setColor(grayColor);
+	      }
+	  }
+  }
+  
+  public void fixUnderwater()
+  {
+	  Pixel[][] Pixels = this.getPixels2D();
+	  for (Pixel[] rowArray : Pixels)
+	  {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	    	  if(pixelObj.getRed() > 20 || pixelObj.getBlue() < 160)
+	    	  {
+	    		  pixelObj.setBlue(0);
+	    		  pixelObj.setRed(0);
+	    		  pixelObj.setGreen(0);
+	    	  }
+
+	      }
+	  }
+  }
   
   /** Method to create a collage of several pictures */
   public void createCollage()
