@@ -347,23 +347,73 @@ public class Picture extends SimplePicture
     }   
   }
 
-  public void secondCopy(Picture fromPic, int startRow, int endRow, int startCol, int endCol)
+  public void edgeDetection2(int edgeDist)
   {
-	  Pixel fromPixel = null;
-	  Pixel toPixel = null;
-	  Pixel[][] toPixels = this.getPixels2D();
-	  Pixel[][] fromPixels = fromPic.getPixels2D();
-	  
-	  for(int fromRow = 0, toRow = startRow; fromRow < fromPixels.length && toRow < toPixels.length; fromRow++, toRow++)
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel bottomPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    Color rightColor = null;
+    Color bottomColor = null;
+    for (int row = 0; row < pixels.length-1; row++)
+    {
+      for (int col = 0; col < pixels[0].length-1; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][col+1];
+        bottomPixel = pixels[row+1][col];
+        rightColor = rightPixel.getColor();
+        bottomColor = bottomPixel.getColor();
+        if (leftPixel.colorDistance(rightColor) > edgeDist || leftPixel.colorDistance(bottomColor) > edgeDist)
+          leftPixel.setColor(Color.BLACK);
+        else
+          leftPixel.setColor(Color.WHITE);
+      }
+    }
+  }
+  
+  public void mirrorDiagonal()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel rightPixel = null;
+	  Pixel leftPixel = null;
+	  int height = pixels.length;
+	  int width = pixels[0].length;
+	  for(int row = 0; row < height; row++)
 	  {
-		  for(int fromCol = 0, toCol = startCol; fromCol < fromPixels[0].length && toCol < toPixels[0].length; fromCol++, toCol++)
+		  for(int col = 0; col < width; col++)
 		  {
-			  fromPixel = fromPixels[fromRow][fromCol];
-			  toPixel = toPixels[toRow][toCol];
-			  toPixel.setColor(fromPixel.getColor());
+			  if(col < height && row < width)
+			  {
+				  rightPixel = pixels[row][col];
+				  leftPixel = pixels[col][row];
+				  leftPixel.setColor(rightPixel.getColor());
+			  }
 		  }
 	  }
   }
+  
+  public void negate()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	    for (Pixel[] rowArray : pixels)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	    	  int green = pixelObj.getGreen();
+	    	  int red = pixelObj.getRed();
+	    	  int blue = pixelObj.getBlue();
+	    	  
+	    	  int negateGreen = 255 - green;
+	    	  int negateRed = 255 - red;
+	    	  int negateBlue = 255 - blue;
+	    	  
+	    	  Color negateColor = new Color(negateRed, negateGreen, negateBlue);
+	    	  pixelObj.setColor(negateColor);
+	      }
+	    }
+  }
+
   
   /** Method to create a collage of several pictures */
   public void createCollage()

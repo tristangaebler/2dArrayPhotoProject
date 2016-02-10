@@ -115,6 +115,26 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testEdgeDetection2() 
+  {
+	  Picture edge = new Picture("beach.jpg");
+	  edge.edgeDetection2(15);
+	  edge.explore();
+  }
+  
+  public void testMirrorDiagnol()
+  {
+	  Picture diagnolImage = new Picture("redMotorcycle.jpg");
+	  diagnolImage.mirrorDiagonal();
+	  diagnolImage.explore();
+  }
+  
+  public void testNegate()
+  {
+	  Picture negate = new Picture("swan.jpg");
+	  negate.negate();
+	  negate.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
